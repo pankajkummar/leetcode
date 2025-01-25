@@ -5,6 +5,6 @@ public class RegularExpresionMatching {
         int row = s.length();
         int col = p.length();
         boolean[][] dp = new boolean[row][col];
-
+return true;
     }
 }

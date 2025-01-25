@@ -24,5 +24,6 @@ public class RegularExpresionMatchingRecursion {
             isMatch(s, p, i+1, j+1);
             isMatch(s, p, i, j+1);
         }
+        return false;
     }
 }
