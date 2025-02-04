@@ -22,12 +22,17 @@ public class WaysToDecode {
             if (twoDigit >= 10 && twoDigit <= 26) {
                 dp[i] += dp[i - 2];
             }
+
+            // Debug print
+            System.out.println("i = " + i + ", dp[i] = " + dp[i] + " (oneDigit = " + oneDigit + ", twoDigit = " + twoDigit + ")");
         }
+
         return dp[n]; // Return the total number of ways to decode
     }
 
     public static void main(String[] args) {
         String s = "51281012029";
-        System.out.println(findWaysToDecode(s));
+        System.out.println("Total ways to decode: " + findWaysToDecode(s)); // Output should be 4
     }
+
 }
