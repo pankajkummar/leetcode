@@ -5,13 +5,13 @@ public class WaysToDecode {
         int n = str.length();
         if (n == 0 || str.charAt(0) == '0') return 0; // If the string starts with '0', no valid decoding
 
-        int[] dp = new int[n + 1]; // DP array for storing results
+        int[] dp = new int[n]; // DP array for storing results
         dp[0] = 1; // Base case: empty string has 1 way to be decoded
         dp[1] = 1; // Single character can only be decoded in one way (unless it's '0', but we already handled that)
 
-        for (int i = 2; i <= n; i++) {
-            int oneDigit = str.charAt(i - 1) - '0'; // Extract last single digit
-            int twoDigit = (str.charAt(i - 2) - '0') * 10 + oneDigit; // Extract last two digits
+        for (int i = 2; i < n; i++) {
+            int oneDigit = str.charAt(i) - '0'; // Extract last single digit
+            int twoDigit = (str.charAt(i - 1) - '0') * 10 + oneDigit; // Extract last two digits
 
             // If the single digit is non-zero, it can be decoded individually
             if (oneDigit != 0) {
@@ -27,11 +27,11 @@ public class WaysToDecode {
             System.out.println("i = " + i + ", dp[i] = " + dp[i] + " (oneDigit = " + oneDigit + ", twoDigit = " + twoDigit + ")");
         }
 
-        return dp[n]; // Return the total number of ways to decode
+        return dp[n-1]; // Return the total number of ways to decode
     }
 
     public static void main(String[] args) {
-        String s = "51281012029";
+        String s = "512810120129";
         System.out.println("Total ways to decode: " + findWaysToDecode(s)); // Output should be 4
     }
 
