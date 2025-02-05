@@ -1,9 +1,9 @@
 package dp;
 
 import java.util.Arrays;
-
+// return number of set sum equals sum
 public class SubsetSum {
-    public static int subsets(int[] set, int sum){
+    public int subsets(int[] set, int sum){
         int[][] dp = new int[set.length][sum+1];
         dp[0][0]=1;
         for(int j=1; j<sum+1; j++){
@@ -23,7 +23,7 @@ public class SubsetSum {
     public static void main(String[] args) {
      int[] set = {1,2,3,1,4};
      int sum=6;
-        System.out.println(subsets(set,sum));
+     //   System.out.println(subsets(set,sum));
 
 
     }
