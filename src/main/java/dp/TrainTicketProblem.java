@@ -19,6 +19,7 @@ public class TrainTicketProblem {
                 int monthCost = trainCost[2] + ((i-30)>=0? dp[i-30]:0);
                 dp[i]= Math.min(dayCost,Math.min(weekCost,monthCost));
             }
+
         }
         System.out.println(Arrays.toString(dp));
         return dp[n-1];
