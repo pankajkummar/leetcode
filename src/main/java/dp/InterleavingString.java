@@ -1,12 +1,14 @@
 package dp;
 
+import util.PrintArray;
+
 import java.util.Arrays;
 
 public class InterleavingString {
     public static boolean isInterleavingPossible(String s1, String s2, String s3){
         int rows = s1.length()+1;
         int cols = s2.length()+1;
-        boolean[][] dp = new boolean[rows][cols];
+        Boolean[][] dp = new Boolean[rows][cols];
         dp[0][0]=true;
         for(int i=1; i<rows; i++){
             dp[i][0] = (s1.charAt(i-1)==s3.charAt(i-1)) & dp[i-1][0];
@@ -21,10 +23,11 @@ public class InterleavingString {
                 dp[i][j] = s1_check | s2_check;
             }
         }
-        System.out.println(Arrays.deepToString(dp));
+        PrintArray pr = new PrintArray();
+        pr.print2D(dp);
 
 
-        return false;
+        return dp[rows-1][cols-1];
     }
 
     public static void main(String[] args) {
