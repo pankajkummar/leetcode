@@ -3,43 +3,28 @@ package util;
 import java.util.Arrays;
 
 public class PrintArray {
-    public static <T> void print(T array) {
-        if (array instanceof Object[]) {
-            Object[] objArray = (Object[]) array;
-            if (objArray.length > 0 && objArray[0] instanceof Object[]) {
-                // 2D Array (Wrapper types like Integer[][], Double[][])
-                for (Object row : objArray) {
-                    System.out.println(Arrays.deepToString((Object[]) row));
-                }
-            } else {
-                // 1D Array (Wrapper types like Integer[], Double[])
-                System.out.println(Arrays.toString(objArray));
+    public <T> void print2D(T[][] array) {
+        int row = array.length;
+        int col = array[0].length;
+        System.out.println("*******************");
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                System.out.print(array[i][j]+" ");
             }
-        } else if (array instanceof int[][]) {
-            for (int[] row : (int[][]) array) {
-                System.out.println(Arrays.toString(row));  // ✅ Corrected
-            }
-        } else if (array instanceof double[][]) {
-            for (double[] row : (double[][]) array) {
-                System.out.println(Arrays.toString(row));  // ✅ Corrected
-            }
-        } else if (array instanceof int[]) {
-            System.out.println(Arrays.toString((int[]) array));
-        } else if (array instanceof double[]) {
-            System.out.println(Arrays.toString((double[]) array));
-        } else {
-            System.out.println("Unsupported array type!");
+            System.out.println();
         }
+        System.out.println("*******************");
+
     }
 
     public static void main(String[] args) {
-        int[][] twoDPrimitive = {
+        Integer[][] twoDPrimitive = {
                 {10, 20, 30},
                 {40, 50, 60},
                 {70, 80, 90}
         };
-
+       PrintArray pr = new PrintArray();
         System.out.println("2D Primitive:");
-        print(twoDPrimitive);
+        pr.print2D(twoDPrimitive);
     }
 }
