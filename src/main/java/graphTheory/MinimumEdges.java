@@ -24,7 +24,9 @@ public class MinimumEdges {
                     if(graph[node][i]==1){
                         if(!visited[i]){
                             queue.add(i);
-                            prev.put(i,node);
+                            if(!prev.containsKey(i)) {
+                                prev.put(i, node);
+                            }
                         }
                     }
                 }
