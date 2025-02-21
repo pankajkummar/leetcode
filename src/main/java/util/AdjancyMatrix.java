@@ -3,7 +3,7 @@ package util;
 public class AdjancyMatrix {
 
 
-    public int[][] createGraph(int n, int[][] edges){
+    public static int[][] createGraph(int n, int[][] edges){
         int[][] graph = new int[n][n];
         for(int[] edge:edges){
             int row = edge[0];
