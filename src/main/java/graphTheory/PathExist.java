@@ -16,9 +16,11 @@ public class PathExist {
             if(!visited[node]){
                 visited[node]=true;
                 System.out.println(node+" ");
-                for(int neighbor : graph[node]){
-                    if(!visited[neighbor]){
-                        stack.push(neighbor);
+                for(int i=0; i< graph.length; i++){
+                    if(graph[node][i]==1) {
+                        if (!visited[i]) {
+                            stack.push(i);
+                        }
                     }
                 }
             }
