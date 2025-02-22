@@ -8,7 +8,7 @@ import java.util.Queue;
 public class PathExistBFS {
     public boolean isPathExist(int n, int[][] edges, int start, int end){
         AdjancyMatrix adj = new AdjancyMatrix();
-        int[][] graph = adj.createGraph(n,edges);
+        int[][] graph = adj.createUndirectedGraph(n,edges);
         boolean[] visited = new boolean[n];
         Queue<Integer> queue = new LinkedList<>();
         queue.add(start);

@@ -10,7 +10,7 @@ import java.util.Queue;
 public class MinimumEdges {
     public static List<Integer> findMinimumEdges(int n, int[][] edges, int start, int end){
         boolean[] visited = new boolean[n];
-        int[][] graph = AdjancyMatrix.createGraph(n,edges);
+        int[][] graph = AdjancyMatrix.createUndirectedGraph(n,edges);
         HashMap<Integer,Integer> prev = new HashMap<>();
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> nodes = new LinkedList<>();

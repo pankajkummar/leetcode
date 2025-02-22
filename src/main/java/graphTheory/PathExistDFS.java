@@ -7,7 +7,7 @@ import java.util.Stack;
 public class PathExistDFS {
     public boolean isPathExist(int n, int[][] edges, int start, int end){
         AdjancyMatrix adj = new AdjancyMatrix();
-        int[][] graph = adj.createGraph(n, edges);
+        int[][] graph = adj.createUndirectedGraph(n, edges);
         boolean[] visited = new boolean[n];
         Stack<Integer> stack = new Stack<>();
         stack.push(start);
